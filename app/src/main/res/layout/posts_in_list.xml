@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="260dp"
+    android:layout_marginBottom="10dp"
+    android:background="#CDCBCB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_height="30dp">
+        <TextView
+            android:id="@+id/author_posts"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="Author view"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/time_pas_posts"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="Time view"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#F4F0F0"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="200dp"
+            android:layout_height="200dp">
+            <TextView
+                android:id="@+id/title_post_text"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:text="title view"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/link_post_text"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:text="link view"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/image_posts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/foto_1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="#EDE5E5"
+        android:paddingHorizontal="20dp"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/comment_image" />
+
+        <TextView
+            android:id="@+id/comments_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="153"
+            android:layout_marginLeft="3dp"/>
+        <TextView
+            android:id="@+id/Share_posts_text"
+            android:layout_width="wrap_content"
+            android:background="#000"
+            android:textColor="#fff"
+            android:layout_height="20dp"
+            android:text="Share"
+            android:layout_marginLeft="150dp"/>
+        <ImageView
+            android:id="@+id/Share_posts_image"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="#000"
+            app:srcCompat="@android:drawable/stat_sys_download" />
+    </LinearLayout>
+</LinearLayout>
