@@ -1,18 +1,33 @@
 package com.example.lastredditapp
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.math.min
 
 class MainActivity : AppCompatActivity() {
+    private var currentPage = 0
+    private val pageSize = 5
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val postsList: RecyclerView = findViewById(R.id.posts_list)
         val posts = arrayListOf<Posts>()
+        val btnNextPage: Button = findViewById(R.id.button_forward_main)
+        val btnPreviousPage: Button = findViewById(R.id.button_back_main)
+
+        fun loadPosts() {
+            val startIndex = currentPage * pageSize
+            val endIndex = min(startIndex + pageSize, posts.size)
+            val subList = posts.subList(startIndex, endIndex)
+            postsList.layoutManager = LinearLayoutManager(this)
+            postsList.adapter = PostsAdapter(subList, this)
+        }
 
         posts.add(Posts(1,"affre","foto_1","Title post 1","Link_post_1","Many text for post 1", "1234", "32454"))
         posts.add(Posts(2,"fdssww","foto_2","Title post 2","Link_post_2","Many text for post 2", "354", "12454"))
@@ -24,10 +39,21 @@ class MainActivity : AppCompatActivity() {
         posts.add(Posts(8,"asdfsde","foto_8","Title post 8","Link_post_8","Many text for post 8", "12", "24254"))
         posts.add(Posts(9,"asfgfgre","foto_9","Title post 9","Link_post_9","Many text for post 9", "14", "32454"))
         posts.add(Posts(10,"asfgsfde","foto_10","Title post 10","Link_post_10","Many text for post 10", "784", "15654"))
-
-        postsList.layoutManager = LinearLayoutManager(this)
-        postsList.adapter = PostsAdapter(posts, this)
+        loadPosts()
+        btnPreviousPage.setOnClickListener {
+            if (currentPage > 0) {
+                currentPage--
+                loadPosts()
+            }
+        }
+        btnNextPage.setOnClickListener {
+            if ((currentPage + 1) * pageSize < posts.size) {
+                currentPage++
+                loadPosts()
+            }
+        }
 
 
     }
+
 }
