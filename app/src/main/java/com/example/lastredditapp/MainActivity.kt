@@ -1,16 +1,23 @@
 package com.example.lastredditapp
 
 import android.app.AlertDialog
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.min
 
 class MainActivity : AppCompatActivity(), PostsAdapter.OnImageClickListener {
+
     //змінна поточної сторінки користувача
     private var currentPage = 0
 
@@ -19,6 +26,9 @@ class MainActivity : AppCompatActivity(), PostsAdapter.OnImageClickListener {
 
     //змінна поточної відкритої картинки користувача
     private var openImageNow:String = ""
+    private val PERMISSION_REQUEST_CODE = 1001
+
+
 
     //Створення діалогу для відображення картинок у збільшеному форматі
     fun createSimpleDialog(image: ImageView) {
