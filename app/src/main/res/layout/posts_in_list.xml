@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_height="260dp"
     android:layout_marginBottom="10dp"
-    android:background="#CDCBCB">
+    android:background="#CDCBCB"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
