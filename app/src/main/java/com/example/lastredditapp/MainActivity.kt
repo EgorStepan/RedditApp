@@ -1,5 +1,7 @@
 package com.example.lastredditapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -11,10 +13,15 @@ import kotlin.math.min
 class MainActivity : AppCompatActivity() {
     private var currentPage = 0
     private val pageSize = 5
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState != null) {
+            currentPage = savedInstanceState.getInt("currentPage", 0)
+        }
 
         val postsList: RecyclerView = findViewById(R.id.posts_list)
         val posts = arrayListOf<Posts>()
@@ -52,8 +59,10 @@ class MainActivity : AppCompatActivity() {
                 loadPosts()
             }
         }
-
-
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("currentPage", currentPage)
+    }
 }
